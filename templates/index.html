@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <title>GEOLOCATOR 9000</title>
+    <head>
+      <link href="../static/main.css" rel="stylesheet">
+    </head>
+      <body>
+        <div class ="container">
+          <h1>Enter two addresses</h1>
+          <form action="{{url_for('success')}}" method="POST">
+            <input placeholder="Enter first address" type="string" name="first" required><br>
+            <input placeholder="Enter second address" type="string" name="second" required><br>
+            <input placeholder="Enter e-mail" type="string" name="mail" required><br>
+            <form>
+              <p>Please select units:</p>
+              <input type="radio" id="Km" name="units" value="Km">
+              <label for="Kilometers">Kilometers</label><br>
+              <input type="radio" id="mi" name="units" value="mi">
+              <label for="Miles">Miles</label><br>
+              <input type="radio" id="Football fields" name="units" value="Football fields">
+              <label for="Football fields">Football fields</label>
+            <br>
+            <p>
+            <button type="submit">Submit</button>
+
+
+          </form>
+        </div>
+      </body>
+
+</html>
