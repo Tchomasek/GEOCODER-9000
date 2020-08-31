@@ -6,3 +6,5 @@ After submiting, the distance between those two places and temperature differenc
 App uses API that allows only 100 querys per day and one run of the app uses two of those. This means that maximum of 50 runs is allowed per day.
 App is also daployed on Heroku. 
 https://geocoder9000.herokuapp.com/
+
+ATM the frontend is very simple. Adding CSS style is going to be the next step.
