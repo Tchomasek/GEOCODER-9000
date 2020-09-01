@@ -1,16 +1,22 @@
 from flask import Flask,render_template,request
+from geopy.geocoders import Nominatim
+from math import sin, cos, sqrt, atan2, radians
+import requests
+from email.mime.text import MIMEText
+import smtplib
+
+
 
 app = Flask(__name__)
 
 def addressToCoords(address):
-    from geopy.geocoders import Nominatim
 
     geolocator = Nominatim(user_agent="myGeocoder")
     location = geolocator.geocode(address)
+    print(location.latitude)
     return (location.latitude, location.longitude)
 
 def dist_from_coord(coord1,coord2):
-    from math import sin, cos, sqrt, atan2, radians
 
     # approximate radius of earth in km
     R = 6373.0
@@ -30,7 +36,6 @@ def dist_from_coord(coord1,coord2):
     return distance
 
 def temp_from_coord(coord1,coord2):
-    import requests
 
     url = "https://climacell-microweather-v1.p.rapidapi.com/weather/realtime"
     headers = {
@@ -43,21 +48,17 @@ def temp_from_coord(coord1,coord2):
     lat2 = coord2[0]
     lon2 = coord2[1]
 
-    print(lat1,lon1,lat2,lon2)
 
     querystring = {"unit_system":"si","fields":"temp","lat":lat1,"lon":lon1}
     response = requests.request("GET", url, headers=headers, params=querystring)
     temp1=response.json()['temp']['value']
-    print(temp1)
     querystring = {"unit_system":"si","fields":"temp","lat":lat2,"lon":lon2}
     response = requests.request("GET", url, headers=headers, params=querystring)
     temp2=response.json()['temp']['value']
-    print(temp2)
     return temp1-temp2
 
 def send_email(email,first,second,distance,units,diff):
-    from email.mime.text import MIMEText
-    import smtplib
+
 
     from_email="tompython8@gmail.com"
     from_password="Python11"
@@ -106,7 +107,7 @@ def success():
         elif diff > 0:
             hiLow='higher'
 
-    return render_template("success.html", first=first, second = second,distance=distance,units=units,diff=diff,hiLow=hiLow)
+    return render_template("success.html", first=first, second = second,distance=distance,units=units,diff=abs(diff),hiLow=hiLow)
 
 if __name__=='__main__':
     app.debug=True

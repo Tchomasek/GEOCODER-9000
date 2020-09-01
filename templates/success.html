@@ -1,21 +1,10 @@
-<!DOCTYPE HTML>
-<html lang="en">
-  <title>GEOCODER 9000</title>
-    <head>
-      <link href="../static/main.css" rel="stylesheet">
-    </head>
-      <body>
-        <div class ="container">
+{%extends 'layout.html'%}
+{%block content%}
+<div class ="container">
+      <h2>Result</h2>
 
-            Distance from {{first | safe}} to {{second | safe}}: {{distance | safe}} {{units | safe}},<br>
-            Temp in {{first | safe}} is {{diff | safe}}°C {{hiLow | safe}} than in {{second | safe}}.
-
-
-
-
-          </p>
-
-        </div>
-      </body>
-
-</html>
+      Distance from {{first | safe}} to {{second | safe}}: {{distance | safe}} {{units | safe}},<br>
+      Temp in {{first | safe}} is {{diff | safe}}°C {{hiLow | safe}} than in {{second | safe}}.
+      {{map | safe}}
+</div>
+{%endblock%}

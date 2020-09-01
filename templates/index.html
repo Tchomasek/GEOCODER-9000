@@ -1,13 +1,9 @@
-<!DOCTYPE HTML>
-<html lang="en">
-  <title>GEOLOCATOR 9000</title>
-    <head>
-      <link href="../static/main.css" rel="stylesheet">
-    </head>
-      <body>
+{%extends 'layout.html'%}
+{%block content%}
+<title> Geocoder 9000</title>
         <div class ="container">
           <h1>Enter two addresses</h1>
-          This app will calculate the distance between given places and tell you temperature difference. Results will be sent to your e-mail ddress.
+          This app will calculate the distance between given places and tell you temperature difference. Results will be sent to your e-mail address.
           <form action="{{url_for('success')}}" method="POST">
             <input placeholder="Enter first address" type="string" name="first" required><br>
             <input placeholder="Enter second address" type="string" name="second" required><br>
@@ -23,12 +19,6 @@
             <br>
             <p>
             <button type="submit">Submit</button>
-
-            
-
-
           </form>
         </div>
-      </body>
-
-</html>
+{%endblock%}
