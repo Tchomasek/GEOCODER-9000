@@ -10,3 +10,5 @@ https://geocoder9000.herokuapp.com/
 
 NOTES:
 App returns an error when nonsensical address or email is given, or units are not selected. Returning relevant message for those cases will be my next step.
+
+Added file appOOP.py, where i tried to demonstrate my ability to build and use classes.
