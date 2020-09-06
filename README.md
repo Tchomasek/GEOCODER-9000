@@ -8,9 +8,4 @@ App uses API that allows only 100 free querys per day and one run of the app use
 App is also daployed on Heroku. 
 https://geocoder9000.herokuapp.com/
 
-NOTES:
-
-Added file appOOP.py, where i tried to demonstrate my ability to use classes.
-
-App returns an error when nonsensical address or email is given, or units are not selected. Returning relevant message for those cases will be my next step.
 
